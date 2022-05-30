@@ -1,5 +1,6 @@
 package com.generation.blogpessoal.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -7,8 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.UpdateTimestamp;
 
 
 // indica para o Spring que o objeto criado vai se tornar uma tabela no banco de dados 
@@ -30,7 +32,8 @@ public class Postagem {
 	
 	private String texto;
 	
-	private Date data;
+	@UpdateTimestamp
+	private LocalDateTime data;
 
 	public Long getId() {
 		return id;
@@ -56,14 +59,14 @@ public class Postagem {
 		this.texto = texto;
 	}
 
-	public Date getData() {
+	public LocalDateTime getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(LocalDateTime data) {
 		this.data = data;
-	} 
-	
+	}
+
 }
 
 
